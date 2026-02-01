@@ -18,7 +18,6 @@ class _HomeUiState extends State<HomeUi> {
           child: Column(
             children: [
               const SizedBox(height: 60),
-
               Center(
                 child: Image.asset(
                   'assets/images/img6.png',
@@ -26,16 +25,17 @@ class _HomeUiState extends State<HomeUi> {
                   fit: BoxFit.contain,
                 ),
               ),
-
               const SizedBox(height: 40),
-
-              // 3. รายการปุ่มกด (สร้าง Helper Method เพื่อลดโค้ดซ้ำ)
-              buildMenuButton(context, "Go to A Page", const Color(0xFFF794F3)),
-              buildMenuButton(context, "Go to B Page", const Color(0xFF2344BB)),
-              buildMenuButton(context, "Go to C Page", const Color(0xFF00B844)),
-              buildMenuButton(context, "Go to D Page", const Color(0xFF3DC5C1)),
-              buildMenuButton(context, "Go to E Page", const Color(0xFFF99D1C)),
-
+              buildMenuButton(
+                  context, "Go to A Page", const Color(0xFFF794F3), '/a01'),
+              buildMenuButton(
+                  context, "Go to B Page", const Color(0xFF2344BB), '/b01'),
+              buildMenuButton(
+                  context, "Go to C Page", const Color(0xFF00B844), '/c01'),
+              buildMenuButton(
+                  context, "Go to D Page", const Color(0xFF3DC5C1), '/d01'),
+              buildMenuButton(
+                  context, "Go to E Page", const Color(0xFFF99D1C), '/e01'),
               const SizedBox(height: 30),
             ],
           ),
@@ -44,12 +44,13 @@ class _HomeUiState extends State<HomeUi> {
     );
   }
 
-  Widget buildMenuButton(BuildContext context, String text, Color color) {
+  Widget buildMenuButton(
+      BuildContext context, String text, Color color, String routeName) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
       child: ElevatedButton(
         onPressed: () {
-          // ใส่คำสั่ง Navigator.push ที่นี่
+          Navigator.pushNamed(context, routeName);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: color,

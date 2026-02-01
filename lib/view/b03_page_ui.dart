@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class B02PageUi extends StatefulWidget {
-  const B02PageUi({super.key});
+class B03PageUi extends StatefulWidget {
+  const B03PageUi({super.key});
 
   @override
-  State<B02PageUi> createState() => _B02PageUiState();
+  State<B03PageUi> createState() => _B03PageUiState();
 }
 
-class _B02PageUiState extends State<B02PageUi> {
+class _B03PageUiState extends State<B03PageUi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,77 +17,72 @@ class _B02PageUiState extends State<B02PageUi> {
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
             children: [
-              const SizedBox(height: 100),
-
+              const SizedBox(height: 80),
               const Text(
-                "Login here",
+                "Create Account",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF1F41BB),
                 ),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 15),
               const Text(
-                "Welcome back you've\nbeen missed!",
+                "Create an account so you can explore all the existing jobs",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
+                ),
               ),
               const SizedBox(height: 50),
-
               _buildTextField("Email"),
               const SizedBox(height: 20),
               _buildTextField("Password", isPassword: true),
-
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Forgot your password?",
-                    style: TextStyle(
-                        color: Color(0xFF1F41BB), fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 30),
-
+              const SizedBox(height: 20),
+              _buildTextField("Confirm Password", isPassword: true),
+              const SizedBox(height: 50),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/b02');
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF1F41BB),
                   foregroundColor: Colors.white,
                   minimumSize: const Size(double.infinity, 60),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   elevation: 10,
                   shadowColor: const Color(0xFF1F41BB).withOpacity(0.5),
                 ),
-                child: const Text("Sign in",
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              ),
-
-              const SizedBox(height: 40),
-
-              // 5. ปุ่มสร้างบัญชีใหม่
-              TextButton(
-                onPressed: () => Navigator.pushNamed(context, '/b03'),
                 child: const Text(
-                  "Create new account",
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
+                  "Sign up",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-
-              const SizedBox(height: 50),
-              const Text("Or continue with",
+              const SizedBox(height: 30),
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text(
+                  "Already have an account",
                   style: TextStyle(
-                      color: Color(0xFF1F41BB), fontWeight: FontWeight.bold)),
+                    color: Colors.black54,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 40),
+              const Text(
+                "Or continue with",
+                style: TextStyle(
+                  color: Color(0xFF1F41BB),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(height: 20),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -98,6 +93,7 @@ class _B02PageUiState extends State<B02PageUi> {
                   _buildSocialIcon('assets/images/apple.png'),
                 ],
               ),
+              const SizedBox(height: 40),
             ],
           ),
         ),
