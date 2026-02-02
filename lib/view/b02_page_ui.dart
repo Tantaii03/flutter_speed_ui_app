@@ -18,7 +18,6 @@ class _B02PageUiState extends State<B02PageUi> {
           child: Column(
             children: [
               const SizedBox(height: 100),
-
               const Text(
                 "Login here",
                 style: TextStyle(
@@ -34,11 +33,9 @@ class _B02PageUiState extends State<B02PageUi> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 50),
-
               _buildTextField("Email"),
               const SizedBox(height: 20),
               _buildTextField("Password", isPassword: true),
-
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -51,7 +48,6 @@ class _B02PageUiState extends State<B02PageUi> {
                 ),
               ),
               const SizedBox(height: 30),
-
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
@@ -67,10 +63,7 @@ class _B02PageUiState extends State<B02PageUi> {
                     style:
                         TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               ),
-
               const SizedBox(height: 40),
-
-              // 5. ปุ่มสร้างบัญชีใหม่
               TextButton(
                 onPressed: () => Navigator.pushNamed(context, '/b03'),
                 child: const Text(
@@ -81,13 +74,11 @@ class _B02PageUiState extends State<B02PageUi> {
                       fontSize: 16),
                 ),
               ),
-
               const SizedBox(height: 50),
               const Text("Or continue with",
                   style: TextStyle(
                       color: Color(0xFF1F41BB), fontWeight: FontWeight.bold)),
               const SizedBox(height: 20),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

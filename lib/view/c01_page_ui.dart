@@ -13,110 +13,75 @@ class _C01PageUiState extends State<C01PageUi> {
     return Scaffold(
       body: Stack(
         children: [
-          // 1. ภาพพื้นหลังเต็มจอ (Fit แบบ Cover)
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/img8.png'),
-                fit: BoxFit.cover,
-              ),
+          SizedBox.expand(
+            child: Image.asset(
+              'assets/images/img8.png',
+              fit: BoxFit.cover,
+              alignment: const Alignment(0.2, 0),
+              errorBuilder: (context, error, stackTrace) =>
+                  Container(color: Colors.green.shade900),
             ),
           ),
-
-          // 2. Overlay บางๆ (เพื่อให้ภาพดูนวลและข้อความสีขาวอ่านง่ายขึ้น)
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.black.withOpacity(0.05),
-          ),
-
-          // 3. เนื้อหาหลัก จัดวางตามสัดส่วนในภาพ 98%
           SafeArea(
-            child: SizedBox(
-              width: double.infinity,
+            child: Center(
               child: Column(
                 children: [
-                  const Spacer(
-                      flex: 8), // ดันโลโก้ลงมาให้อยู่ช่วงกลางตัวคนตามภาพ
-
-                  // โลโก้ H ในกรอบสีขาวขอบมน (Rounded Box)
+                  const Spacer(flex: 45),
                   Container(
-                    width: 150, // ปรับขนาดให้ใหญ่เด่นตามภาพ
-                    height: 150,
+                    width: 140,
+                    height: 140,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(35), // ขอบมนสวยงาม
+                      borderRadius: BorderRadius.circular(32),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 10,
-                          offset: const Offset(0, 5),
+                          color: Colors.black.withOpacity(0.08),
+                          blurRadius: 15,
+                          offset: const Offset(0, 8),
                         ),
                       ],
                     ),
                     child: Center(
-                      child: Image.asset(
-                        'assets/images/img10.png',
-                        height: 100, // ขนาดตัว H สีเขียวด้านใน
+                      child: Image.asset('assets/images/img10.png',
+                          width: 90, height: 90),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  const Text("HOPE FOR",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 38,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: 1.5)),
+                  const Text("HUMANITY",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 38,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: 1.5,
+                          height: 0.8)),
+                  const Spacer(flex: 30),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, '/c02'),
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: Column(
+                        children: const [
+                          Text("Welcome to",
+                              style: TextStyle(
+                                  color: Color(0xFF004D20),
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.bold)),
+                          Text("hope for humanity",
+                              style: TextStyle(
+                                  color: Color(0xFF004D20),
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.bold,
+                                  height: 0.9)),
+                        ],
                       ),
                     ),
                   ),
-
-                  const SizedBox(height: 25),
-
-                  // ข้อความ HOPE FOR HUMANITY
-                  const Text(
-                    "HOPE FOR",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.2,
-                    ),
-                  ),
-                  const Text(
-                    "HUMANITY",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.2,
-                      height: 0.9, // ให้บรรทัดชิดกันตามแบบ
-                    ),
-                  ),
-
-                  const Spacer(
-                      flex: 4), // เว้นระยะห่างระหว่างหัวข้อกับข้อความล่าง
-
-                  // ข้อความ Welcome สีเขียวเข้ม (Dark Green) ตามภาพ
-                  GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, '/c02'),
-                    child: Column(
-                      children: const [
-                        Text(
-                          "Welcome to",
-                          style: TextStyle(
-                            color: Color(0xFF004D20), // สีเขียวเข้มจัด
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          "hope for humanity",
-                          style: TextStyle(
-                            color: Color(0xFF004D20),
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            height: 0.9,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  const Spacer(flex: 2), // พื้นที่ว่างด้านล่างสุด
                 ],
               ),
             ),

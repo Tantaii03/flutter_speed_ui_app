@@ -41,17 +41,13 @@ class FlutterSpeedUiApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Speed UI',
-
       theme: ThemeData(
         useMaterial3: true,
         textTheme: GoogleFonts.kanitTextTheme(
           Theme.of(context).textTheme,
         ),
       ),
-
       initialRoute: '/',
-
-      // ตารางเส้นทาง (Routes) สำหรับทุกไฟล์ในโปรเจกต์
       routes: {
         '/': (context) => const HomeUi(),
 
@@ -69,14 +65,14 @@ class FlutterSpeedUiApp extends StatelessWidget {
         '/c02': (context) => const C02PageUi(),
         '/c03': (context) => const C03PageUi(),
 
-        // Routes สำหรับ Group D (หน้าจอที่เหมือนในรูปภาพ)
-        '/d01': (context) => const D01PageUi(), // Welcome Screen
-        '/d02': (context) => const D02PageUi(), // Login Screen
-        '/d03': (context) => const D03PageUi(), // Register Screen
-        '/d04': (context) => const D04PageUi(), // Forgot Password Screen
-        '/d05': (context) => const D05PageUi(), // OTP Screen
-        '/d06': (context) => const D06PageUi(), // New Password Screen
-        '/d07': (context) => const D07PageUi(), // Success Screen
+        // Routes สำหรับ Group D
+        '/d01': (context) => const D01PageUi(),
+        '/d02': (context) => const D02PageUi(),
+        '/d03': (context) => const D03PageUi(),
+        '/d04': (context) => const D04PageUi(),
+        '/d05': (context) => const D05PageUi(),
+        '/d06': (context) => const D06PageUi(),
+        '/d07': (context) => const D07PageUi(),
 
         // Routes สำหรับ Group E
         '/e01': (context) => const E01PageUi(),
